@@ -1,5 +1,6 @@
+require('dotenv').config();
+
 const { SlashCommandBuilder } = require('discord.js');
-const { ownerId } = require('../../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -10,7 +11,7 @@ module.exports = {
                 .setDescription('The command to reload.')
                 .setRequired(true)),
     async execute(interaction) {
-        if (interaction.user.id != ownerId) {
+        if (interaction.user.id != process.env.OWNER_ID) {
             return interaction.reply('Only the owner of this bot can use this command!');
         }
 
