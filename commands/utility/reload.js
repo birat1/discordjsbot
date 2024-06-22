@@ -12,7 +12,7 @@ module.exports = {
                 .setDescription('The command to reload.')
                 .setRequired(true)),
     async execute(interaction) {
-        if (interaction.user.id != process.env.OWNER_ID) {
+        if (interaction.user.id !== process.env.OWNER_ID) {
             return interaction.reply('Only the owner of this bot can use this command!');
         }
 
